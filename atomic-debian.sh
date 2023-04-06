@@ -1,6 +1,6 @@
 #!/bin/sh
-echo -n "Installing extra packages and configuring sudo..."
-apt-get install sudo git -y
+echo -n "Install and configure sudo..."
+apt-get install sudo -y
 sed -i s/sudo:x:27:$/sudo:x:27:$USER/ /etc/group
 echo "Done."
 
