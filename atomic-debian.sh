@@ -1,7 +1,8 @@
 #!/bin/sh
 echo -n "Install and configure sudo..."
 apt-get install sudo -y
-sed -i s/sudo:x:27:$/sudo:x:27:$USER/ /etc/group
+DEFAULT_USER=`grep 1000:1000 /etc/passwd | awk -F ':' '{print $1}'`
+sed -i s/sudo:x:27:$/sudo:x:27:$DEFAULT_USER/ /etc/group
 echo "Done."
 
 echo -n "Installing proprietary firmware files for Atomic Pi network interfaces..."
